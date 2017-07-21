@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nsc.nsc">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.ListOptionsActivity"
+            android:label="MENU" />
+        <activity
+            android:name=".Activities.StockActivity"
+            android:label="STOCK" />
+        <activity
+            android:name=".Activities.AddNewItemToDBActivity"
+            android:label="ADD NEW ITEM" />
+        <activity
+            android:name=".Activities.CurrentStock"
+            android:label="CARS" />
+        <activity
+            android:name=".Activities.DesignList"
+            android:label="DESIGNS" />
+        <activity
+            android:name=".Activities.ContractorsListActivity"
+            android:label="CONTRACTORS" />
+        <activity android:name=".Activities.ContractorOptionsActivity" />
+        <activity android:name=".Activities.ContractorCarDisplay" />
+        <activity android:name=".Activities.ContractorDesignDisplay" />
+        <activity android:name=".Activities.AddToStockCarDisplay" />
+        <activity android:name=".Activities.AddToStockDesignUpdateActivity" />
+        <activity android:name=".Activities.SalesCarDisplayActivity"></activity>
+    </application>
+
+</manifest>
