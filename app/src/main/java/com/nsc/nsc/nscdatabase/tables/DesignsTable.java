@@ -159,6 +159,7 @@ public class DesignsTable {
        {
            case "Anil":
            {
+
                c=db.query(DesignsTableColumns.DESIGN_TABLE_NAME,
                        new String[]{DesignsTableColumns.COLUMN_ANIL},
                        DesignsTableColumns.DESIGN_COLUMN_id+" = " + id,
@@ -173,10 +174,13 @@ public class DesignsTable {
                {
                    arrayListContQuantities.add(c.getInt(index));
                }
+
+               break;
            }
 
            case "Dharampal":
            {
+
                c=db.query(DesignsTableColumns.DESIGN_TABLE_NAME,
                           new String[]{DesignsTableColumns.COLUMN_DHARAMPAL},
                           DesignsTableColumns.DESIGN_COLUMN_id+" = "+id,
@@ -190,10 +194,13 @@ public class DesignsTable {
                {
                    arrayListContQuantities.add(c.getInt(index));
                }
+
+               break;
            }
 
            case "Mohammad":
            {
+
                c=db.query(DesignsTableColumns.DESIGN_TABLE_NAME,
                        new String[]{DesignsTableColumns.COLUMN_MOHAMMAD},
                        DesignsTableColumns.DESIGN_COLUMN_id+ " = " +id,
@@ -206,12 +213,16 @@ public class DesignsTable {
 
                while (c.moveToNext())
                {
+
                    arrayListContQuantities.add(c.getInt(index));
                }
+
+               break;
            }
 
            case "Pinto":
            {
+
                c=db.query(DesignsTableColumns.DESIGN_TABLE_NAME,
                        new String[]{DesignsTableColumns.COLUMN_PINTO},
                        DesignsTableColumns.DESIGN_COLUMN_id+" = "+id,
@@ -224,10 +235,13 @@ public class DesignsTable {
                {
                    arrayListContQuantities.add(c.getInt(index));
                }
+
+               break;
            }
 
            case "Vinod":
            {
+
                c=db.query(DesignsTableColumns.DESIGN_TABLE_NAME,
                        new String[]{DesignsTableColumns.COLUMN_VINOD},
                        DesignsTableColumns.DESIGN_COLUMN_id+" = "+id,
@@ -240,14 +254,17 @@ public class DesignsTable {
                {
                    arrayListContQuantities.add(c.getInt(index));
                }
+             break;
+
            }
+
        }
 
-       return arrayListContQuantities;
+      return arrayListContQuantities;
 
    }
 
-   public static void updateQuantities(SQLiteDatabase db,int id,String name,int quantity,String designName,int initQuan)
+   public static void updateQuantities(SQLiteDatabase db,int id,String name,int quantity,String designName,int initQuan,int continit)
    {
       switch (name)
       {
@@ -264,6 +281,7 @@ public class DesignsTable {
                               + DesignsTableColumns.COLUMN_DESIGN+ " = "+"'"+designName+"'" ,
                       null
                       );
+          break;
           }
 
           case "Dharampal":
@@ -271,7 +289,7 @@ public class DesignsTable {
 
               ContentValues contentValues=new ContentValues();
               contentValues.put(DesignsTableColumns.COLUMN_TOTALQUANTITY,initQuan+quantity);
-              contentValues.put(DesignsTableColumns.COLUMN_DHARAMPAL,initQuan+quantity);
+              contentValues.put(DesignsTableColumns.COLUMN_DHARAMPAL,continit+quantity);
 
               db.update(DesignsTableColumns.DESIGN_TABLE_NAME,
                       contentValues,
@@ -279,13 +297,14 @@ public class DesignsTable {
                               + DesignsTableColumns.COLUMN_DESIGN+ " = "+"'"+designName+"'" ,
                       null
                       );
+          break;
           }
           case "Mohammad":
           {
 
               ContentValues contentValues=new ContentValues();
               contentValues.put(DesignsTableColumns.COLUMN_TOTALQUANTITY,initQuan+quantity);
-              contentValues.put(DesignsTableColumns.COLUMN_MOHAMMAD,initQuan+quantity);
+              contentValues.put(DesignsTableColumns.COLUMN_MOHAMMAD,continit+quantity);
 
               db.update(DesignsTableColumns.DESIGN_TABLE_NAME,
                       contentValues,
@@ -293,6 +312,7 @@ public class DesignsTable {
                               + DesignsTableColumns.COLUMN_DESIGN+ " = "+"'"+designName+"'" ,
                       null
               );
+          break;
           }
 
           case "Pinto":
@@ -300,7 +320,7 @@ public class DesignsTable {
 
               ContentValues contentValues=new ContentValues();
               contentValues.put(DesignsTableColumns.COLUMN_TOTALQUANTITY,initQuan+quantity);
-              contentValues.put(DesignsTableColumns.COLUMN_PINTO,initQuan+quantity);
+              contentValues.put(DesignsTableColumns.COLUMN_PINTO,continit+quantity);
 
               db.update(DesignsTableColumns.DESIGN_TABLE_NAME,
                       contentValues,
@@ -308,7 +328,7 @@ public class DesignsTable {
                               + DesignsTableColumns.COLUMN_DESIGN+ " = "+"'"+designName+"'" ,
                       null
               );
-
+         break;
 
           }
 
@@ -317,7 +337,7 @@ public class DesignsTable {
 
               ContentValues contentValues=new ContentValues();
               contentValues.put(DesignsTableColumns.COLUMN_TOTALQUANTITY,initQuan+quantity);
-              contentValues.put(DesignsTableColumns.COLUMN_VINOD,initQuan+quantity);
+              contentValues.put(DesignsTableColumns.COLUMN_VINOD,continit+quantity);
 
               db.update(DesignsTableColumns.DESIGN_TABLE_NAME,
                       contentValues,
@@ -325,6 +345,7 @@ public class DesignsTable {
                               + DesignsTableColumns.COLUMN_DESIGN+ " = "+"'"+designName+"'" ,
                       null
               );
+          break;
           }
       }
 
@@ -343,6 +364,20 @@ public class DesignsTable {
            array.add(c.getString(index));
            Log.d(TAG, "DesignNameDesignTable "+array.get(index));
        }
+
+    }
+
+    public static void updateTotQuantities(SQLiteDatabase db,int id,String design,int quan)
+    {
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(DesignsTableColumns.COLUMN_TOTALQUANTITY,quan);
+
+        db.update(DesignsTableColumns.DESIGN_TABLE_NAME,
+                 contentValues,
+                DesignsTableColumns.DESIGN_COLUMN_id+" = "+"'"+id+ "'"   + " AND "
+                        + DesignsTableColumns.COLUMN_DESIGN+ " = "+"'"+design+"'",
+                 null
+        );
 
     }
 

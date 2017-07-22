@@ -28,7 +28,7 @@ public class AddToStockCarDisplay extends AppCompatActivity {
 
         myNscDatabaseHelper=new MyNscDatabaseHelper(this);
         db=myNscDatabaseHelper.getReadableDatabase();
-
+        setTitle("SALES");
         final String name=getIntent().getStringExtra("ContName");
         setTitle(name.toUpperCase());
         arrayListCarNames= CarsTable.getCarNames(db);

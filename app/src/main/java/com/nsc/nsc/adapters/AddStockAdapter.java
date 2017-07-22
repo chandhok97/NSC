@@ -27,13 +27,16 @@ public class AddStockAdapter extends RecyclerView.Adapter<AddStockAdapter.AddSto
     ArrayList<String> arrayListDesignName;
     SQLiteDatabase db;
     ArrayList<Integer> arrayList;
-    public AddStockAdapter(Context context, Integer id, String name,ArrayList<String> arrayListDesignName,SQLiteDatabase db,ArrayList<Integer> arrayList){
+    ArrayList<Integer> arrayListCont;
+    public AddStockAdapter(Context context, Integer id, String name,ArrayList<String> arrayListDesignName,SQLiteDatabase db
+            ,ArrayList<Integer> arrayList,ArrayList<Integer> arrayListCont){
         this.context = context;
         this.id = id;
         this.arrayListDesignName=arrayListDesignName;
         this.name = name;
         this.db=db;
         this.arrayList=arrayList;
+    this.arrayListCont=arrayListCont;
     }
 
     @Override
@@ -54,8 +57,9 @@ public class AddStockAdapter extends RecyclerView.Adapter<AddStockAdapter.AddSto
             public void onClick(View v) {
                 final int quantity=Integer.valueOf(holder.etAdd.getText().toString());
                  String d=arrayListDesignName.get(position);
-                int initQuan=arrayList.get(position);
-                DesignsTable.updateQuantities(db,id,name,quantity,d,initQuan);
+                int totinitQuan=arrayList.get(position);
+                int continit=arrayListCont.get(position);
+                DesignsTable.updateQuantities(db,id,name,quantity,d,totinitQuan,continit);
                 holder.etAdd.setText("");
                 Toast.makeText(context, "Sets Updated", Toast.LENGTH_SHORT).show();
             }

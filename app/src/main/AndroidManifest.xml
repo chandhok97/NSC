@@ -41,7 +41,8 @@
         <activity android:name=".Activities.ContractorDesignDisplay" />
         <activity android:name=".Activities.AddToStockCarDisplay" />
         <activity android:name=".Activities.AddToStockDesignUpdateActivity" />
-        <activity android:name=".Activities.SalesCarDisplayActivity"></activity>
+        <activity android:name=".Activities.SalesCarDisplayActivity" />
+        <activity android:name=".Activities.SalesDesignDisplayActivity"></activity>
     </application>
 
 </manifest>

@@ -24,11 +24,11 @@
                 android:textSize="22dp"
                 android:layout_weight="6"
 
-                android:id="@+id/tvdesign"
+                android:id="@+id/tvSalesDesign"
                 />
 
             <EditText
-                android:id="@+id/etAdd"
+                android:id="@+id/etSubt"
                 android:layout_width="0dp"
                 android:hint="Sets"
                 android:textColor="@color/colorPrimary"
@@ -40,10 +40,9 @@
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_weight="1.5"
-                android:id="@+id/ivAdd"
-
+                android:id="@+id/ivSubt"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add_black_18dp"
+                android:src="@drawable/ic_remove_black_24dp"
                 />
 
 

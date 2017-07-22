@@ -25,10 +25,10 @@
 
             <ImageView
                 android:id="@+id/ivCont"
-                android:layout_width="wrap_content"
+                android:layout_width="154dp"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_weight="3" />
+
+                android:layout_height="wrap_content" />
 
             <TextView
 
@@ -62,9 +62,9 @@
             <ImageView
                 android:id="@+id/ivStock"
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
+                android:layout_width="148dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3" />
+                 />
 
             <TextView
 
@@ -98,10 +98,11 @@
 
             <ImageView
                 android:id="@+id/ivSale"
-                android:layout_width="wrap_content"
+                android:layout_width="149dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="3" />
+
+                android:layout_weight="1.05" />
 
             <TextView
                 android:id="@+id/tvsst"

@@ -7,43 +7,36 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.nsc.nsc.R;
-import com.nsc.nsc.adapters.AddStockAdapter;
+import com.nsc.nsc.adapters.SalesAdapter;
 import com.nsc.nsc.nscdatabase.MyNscDatabaseHelper;
 import com.nsc.nsc.nscdatabase.tables.DesignNamesOnlyTable;
 import com.nsc.nsc.nscdatabase.tables.DesignsTable;
 
 import java.util.ArrayList;
 
-public class AddToStockDesignUpdateActivity extends AppCompatActivity {
-
+public class SalesDesignDisplayActivity extends AppCompatActivity {
     RecyclerView rvdesignname;
     SQLiteDatabase db=null;
     MyNscDatabaseHelper myNscDatabaseHelper;
     ArrayList<String> arrayListDesignName;
-
+    ArrayList<Integer> arrayListTotQuantities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_to_stock_design_update);
-
-        String name=getIntent().getStringExtra("ContName");
-        setTitle(name.toUpperCase());
-        Integer id=getIntent().getIntExtra("id",-1);
+        setContentView(R.layout.activity_sales_design_display);
+        setTitle("SALES");
+        int id=getIntent().getIntExtra("id",-1);
         myNscDatabaseHelper=new MyNscDatabaseHelper(this);
         db=myNscDatabaseHelper.getReadableDatabase();
         db=myNscDatabaseHelper.getWritableDatabase();
-
-        ArrayList<Integer> arrayList= DesignsTable.getTotalQuanties(db,id);
-        ArrayList<Integer> arrayListContQuantities=DesignsTable.getContQuantities(db,id,name);
-
-
         arrayListDesignName= DesignNamesOnlyTable.getDesignNames(db);
-        rvdesignname= (RecyclerView) findViewById(R.id.rvAddToStockDesignName);
-        rvdesignname.setLayoutManager(new LinearLayoutManager(this));
-        AddStockAdapter addStockAdapter=new AddStockAdapter(this,id,name,arrayListDesignName,db,arrayList,arrayListContQuantities);
-        rvdesignname.setAdapter(addStockAdapter);
+        arrayListTotQuantities= DesignsTable.getTotalQuanties(db,id);
 
+        rvdesignname= (RecyclerView) findViewById(R.id.rvSalesDesignName);
+        rvdesignname.setLayoutManager(new LinearLayoutManager(this));
+        SalesAdapter salesAdapter=new SalesAdapter(this,arrayListDesignName,arrayListTotQuantities,id,db);
+        rvdesignname.setAdapter(salesAdapter);
 
     }
 }

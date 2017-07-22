@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.nsc.nsc.Activities.SalesCarDisplayActivity">
+    tools:context="com.nsc.nsc.Activities.SalesDesignDisplayActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="LIST OF CARS"
+        android:text="LIST OF DESIGNS"
         android:textSize="25dp"
         android:textColor="@color/colorAccent"
         android:gravity="center"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
 
-        android:id="@+id/rvSalesCarName"
+        android:id="@+id/rvSalesDesignName"
 
         />
 
