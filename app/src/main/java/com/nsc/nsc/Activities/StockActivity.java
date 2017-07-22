@@ -10,7 +10,7 @@ import com.nsc.nsc.R;
 
 public class StockActivity extends AppCompatActivity {
 
-    CardView cvCurr,cvAddNewItem;
+    CardView cvCurr,cvAddNewItem,cvAddExisting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class StockActivity extends AppCompatActivity {
 
         cvAddNewItem= (CardView) findViewById(R.id.cvAddNewItem);
         cvCurr= (CardView) findViewById(R.id.cvCurrent);
+        cvAddExisting= (CardView) findViewById(R.id.cvAddExistingStock);
         cvAddNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +32,14 @@ public class StockActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(StockActivity.this,CurrentStock.class);
+                startActivity(i);
+            }
+        });
+
+        cvAddExisting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 Intent i=new Intent(StockActivity.this,AddExistingStock.class);
                 startActivity(i);
             }
         });

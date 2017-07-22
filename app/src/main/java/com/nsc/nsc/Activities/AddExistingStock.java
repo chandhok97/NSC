@@ -14,22 +14,23 @@ import com.nsc.nsc.nscdatabase.tables.CarsTable;
 
 import java.util.ArrayList;
 
-public class SalesCarDisplayActivity extends AppCompatActivity {
+public class AddExistingStock extends AppCompatActivity {
 
     SQLiteDatabase db=null;
     MyNscDatabaseHelper myNscDatabaseHelper;
     ArrayList<String> arrayListCarNames=new ArrayList<>();
     RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sales_car_display);
+        setContentView(R.layout.activity_add_existing_stock);
 
         myNscDatabaseHelper=new MyNscDatabaseHelper(this);
         db=myNscDatabaseHelper.getReadableDatabase();
 
         arrayListCarNames= CarsTable.getCarNames(db);
-        recyclerView= (RecyclerView) findViewById(R.id.rvSalesCarName);
+        recyclerView= (RecyclerView) findViewById(R.id.rvExistingCar);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         CarsDisplayAdapter carsDisplayAdapter=new CarsDisplayAdapter(this,arrayListCarNames);
         recyclerView.setAdapter(carsDisplayAdapter);
@@ -37,11 +38,14 @@ public class SalesCarDisplayActivity extends AppCompatActivity {
         carsDisplayAdapter.setOnItemClickListener(new CarsDisplayAdapter.OnItemClickListener() {
             @Override
             public void onclick(Integer position) {
-              Intent intent=new Intent(SalesCarDisplayActivity.this,SalesDesignDisplayActivity.class);
-                intent.putExtra("id",position+1);
-                startActivity(intent);
+                Intent i=new Intent(AddExistingStock.this,AddExistingDesignDisplay.class);
+                i.putExtra("id",position+1);
+                startActivity(i);
             }
         });
+
+
+
 
     }
 }

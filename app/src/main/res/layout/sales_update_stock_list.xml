@@ -6,54 +6,49 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="10"
-            >
+            android:weightSum="10">
 
             <TextView
+                android:id="@+id/tvSalesDesign"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Contents"
-                android:textSize="22dp"
                 android:layout_weight="6"
+                android:text="Contents"
 
-                android:id="@+id/tvSalesDesign"
-                />
+                android:textSize="22dp" />
 
             <EditText
                 android:id="@+id/etSubt"
                 android:layout_width="0dp"
-                android:hint="Sets"
-                android:textColor="@color/colorPrimary"
                 android:layout_height="wrap_content"
-
                 android:layout_weight="2.5"
-                android:inputType="number" />
+                android:hint="Sets"
+
+                android:inputType="number"
+                android:textColor="@color/colorPrimary" />
 
             <ImageButton
-                android:layout_width="0dp"
-                android:layout_weight="1.5"
                 android:id="@+id/ivSubt"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_remove_black_24dp"
-                />
+                android:layout_weight="1.5"
+
+                android:src="@drawable/ic_remove_black_24dp" />
 
 
         </LinearLayout>
 
 
-
     </LinearLayout>
-
-
-
 
 
 </android.support.v7.widget.CardView>
